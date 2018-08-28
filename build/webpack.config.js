@@ -28,9 +28,23 @@ module.exports = {
             '@': path.resolve(__dirname, '../src'),
         },
     },
+    resolveLoader: {
+        modules: ['node_modules', path.resolve(__dirname, 'loaders')],
+    },
 
     module: {
         loaders: [
+            {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'include-loader',
+                        options: {
+                            key: /\$\$\(()\)/,
+                        },
+                    },
+                ],
+            },
             {
                 test: /\.(jpg|gif|png|svg)$/,
                 loader: 'url-loader',
