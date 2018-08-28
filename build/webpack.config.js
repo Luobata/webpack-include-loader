@@ -40,7 +40,7 @@ module.exports = {
                     {
                         loader: 'include-loader',
                         options: {
-                            key: /\$\$\(()\)/,
+                            token: /\$\$\(()\)/,
                         },
                     },
                 ],
