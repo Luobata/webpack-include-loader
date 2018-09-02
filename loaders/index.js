@@ -12,7 +12,7 @@ function isReg(val) {
 
 function resolve(filePath, source, token) {
     source = source.replace(token, (full, key) => {
-        const p = path.resolve(filePath, key);
+        const p = path.resolve(filePath, key.replace(/['"]/g, ''));
         const file = fs.readFileSync(p, 'utf-8');
 
         return resolve(path.dirname(p), file, token);
@@ -23,7 +23,7 @@ function resolve(filePath, source, token) {
 
 export default function loader(source) {
     const options = getOptions(this);
-    const defaultToken = /\$\$\('(.*)'\)/g;
+    const defaultToken = /\$\$\((.*)\)/g;
     let token;
 
     if (options.token) {
@@ -35,7 +35,6 @@ export default function loader(source) {
         token = defaultToken;
     }
     source = resolve(this.context, source, token);
-    console.log(source);
 
     return `${JSON.stringify(source)}`;
 }
