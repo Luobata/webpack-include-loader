@@ -3,7 +3,6 @@
     "version": "0.0.2",
     "description": "",
     "main": "loaders/index.js",
-    // "module": "dist/webpack-include-loader.esm.js",
     "scripts": {
         "build": "node build/build.js",
         "build:esm": "rollup -c build/rollup.config.js && rm -rf .rpt2_cache",
