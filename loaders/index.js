@@ -23,7 +23,7 @@ function resolve(filePath, source, token) {
     return source;
 }
 
-export default function loader(source) {
+module.exports = function loader(source) {
     const options = getOptions(this);
     const defaultToken = /\$\$\((.*)\)/g;
     let token;
@@ -39,4 +39,4 @@ export default function loader(source) {
     source = resolve(this.context, source, token);
 
     return `${JSON.stringify(source)}`;
-}
+};
