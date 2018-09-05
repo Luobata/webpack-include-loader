@@ -2,9 +2,11 @@
  *  @desc loader entry
  */
 
-import { getOptions } from 'loader-utils';
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
+const loaderUtils = require('loader-utils');
+
+const getOptions = loaderUtils.getOptions;
 
 function isReg(val) {
     return Object.prototype.toString.call(val) === '[object RegExp]';
