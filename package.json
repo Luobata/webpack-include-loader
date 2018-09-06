@@ -1,7 +1,7 @@
 {
     "name": "webpack-include-loader",
-    "version": "0.0.4",
-    "description": "",
+    "version": "0.0.6",
+    "description": "a webpack include loader for some synax not support include like .md",
     "main": "loaders/index.js",
     "scripts": {
         "build": "node build/build.js",

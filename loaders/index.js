@@ -28,7 +28,7 @@ module.exports = function loader(source) {
     const defaultToken = /\$\$\((.*)\)/g;
     let token;
 
-    if (options.token) {
+    if (options && options.token) {
         if (!isReg(options.token)) {
             throw new Error(`${options.token} is not a RegExp!`);
         }

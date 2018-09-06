@@ -16,9 +16,6 @@ export default (fixture, options = {}) => {
                     test: /\.md$/,
                     use: {
                         loader: path.resolve(__dirname, '../loaders/index.js'),
-                        options: {
-                            name: 'Alice',
-                        },
                     },
                 },
             ],
