@@ -2,6 +2,10 @@ import path from 'path';
 import webpack from 'webpack';
 import memoryfs from 'memory-fs';
 
+function resolve(dir) {
+    return path.join(__dirname, '..', dir);
+}
+
 export default (fixture, options = {}) => {
     const compiler = webpack({
         context: __dirname,
@@ -19,6 +23,11 @@ export default (fixture, options = {}) => {
                     },
                 },
             ],
+        },
+        resolve: {
+            alias: {
+                '@': resolve('test/file'),
+            },
         },
     });
 
